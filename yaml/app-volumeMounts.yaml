@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-volume
+spec:
+  containers:
+  - name: app
+    image: gcr.io/kuar-demo/kuard-amd64:1
+    volumeMounts:
+    - name: app-data
+      mountPath: /data
+  volumes:
+  - name: app-data
+    hostPath:
+      path: /var/lib/app
